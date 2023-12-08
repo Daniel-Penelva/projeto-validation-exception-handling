@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.api.projetovalidationexceptionhandling.dto.UserRequest;
 import com.api.projetovalidationexceptionhandling.entities.User;
+import com.api.projetovalidationexceptionhandling.exception.UserNotFoundException;
 import com.api.projetovalidationexceptionhandling.service.UserService;
 
 import jakarta.validation.Valid;
@@ -39,7 +40,7 @@ public class UserController {
 
     // http://localhost:8080/users/search/{id}
     @GetMapping("/search/{id}")
-    public ResponseEntity<User> getUser(@PathVariable int id) {
+    public ResponseEntity<User> getUser(@PathVariable int id) throws UserNotFoundException{
         return ResponseEntity.ok(userService.getUser(id));
     }
 
