@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "USERS_TBL")
 @Data
-@AllArgsConstructor
+@AllArgsConstructor(staticName = "build")  // instrui o Lombok a gerar um método de fábrica estático chamado build do tipo UserRequest contendo todas as propriedades - exemplificando no UserService.
 @NoArgsConstructor
 public class User {
 
