@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.api.projetovalidationexceptionhandling.dto.UserRequest;
 import com.api.projetovalidationexceptionhandling.entities.User;
 import com.api.projetovalidationexceptionhandling.service.UserService;
+
+import jakarta.validation.Valid;
+
 import java.util.List;
 
 @RestController
@@ -24,7 +27,7 @@ public class UserController {
 
     // http://localhost:8080/users/signup
     @PostMapping("/signup")
-    public ResponseEntity<User> saveUser(@RequestBody UserRequest userRequest) {
+    public ResponseEntity<User> saveUser(@RequestBody @Valid UserRequest userRequest) {
         return new ResponseEntity<>(userService.saveUser(userRequest), HttpStatus.CREATED);
     }
 
